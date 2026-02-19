@@ -32,13 +32,28 @@ app.get('/cars/:carModel/:year', (req, res) => {
     res.send({ data: `
         Your ${req.params.carModel} is very nice.
         Is it from the year ${req.params.year}?
-    ` });
+    `});
 });
 
 // query string / query parameters
 // ?parametername=value&parametertwo=valuetwo
 app.get('/bag', (req, res) => {
     res.send({ data: req.query });
+});
+
+
+app.get("/proxy", (req, res) => {
+    /* assignment
+        Make a request to https://www.google.com/ and serve the page to the client
+        This is called a proxy.
+        You already have all the knowledge you need to solve this task
+    */
+   fetch('https://www.google.com/')
+   .then((response) => response.text())
+   .then((result) => {
+    res.send(result);
+   })
+ 
 });
 
 app.post('/dinosaurs', (req, res) => {
