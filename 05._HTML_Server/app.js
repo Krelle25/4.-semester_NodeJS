@@ -1,11 +1,15 @@
-const express = require('express');
+// const express = require('express');
+import express from 'express';
 const app = express();
 
 app.use(express.static('public'));
 
-const cookiesUtil = require('./util/cookiesUtil.js');
+// const commonjsCookiesUtil = require('./util/commonjsCookiesUtil.js');
+// console.log(commonjsCookiesUtil.getCookie());
 
-// console.log(cookiesUtil.getCookie());
+import { esModuleCookieFactory } from './util/esModuleCookiesUtil.js';
+console.log(esModuleCookieFactory());
+
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/frontpage/frontpage.html');
