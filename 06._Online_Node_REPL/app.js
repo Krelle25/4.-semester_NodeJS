@@ -27,6 +27,8 @@ app.post('/api/repl', (req, res) => {
 });
 
 
-app.listen(8080, () => {
-    console.log("Server started on port", 8080)
+const PORT = process.env.PORT || 8080;
+
+const server = app.listen(PORT, () => {
+    console.log("Server started on port", server.address().port);
 });
