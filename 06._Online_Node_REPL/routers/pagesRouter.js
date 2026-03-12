@@ -1,11 +1,19 @@
-import { frontpagePage, aboutPage } from './util/pagesUtil.js';
+import { Router } from 'express';
 
-app.get('/', (req, res) => {
+import { frontpagePage, aboutPage, contactPage } from '../util/pagesUtil.js';
+
+const router = Router();
+
+router.get('/', (req, res) => {
     res.send(frontpagePage);
 });
 
-app.get('/about', (req, res) => {
+router.get('/about', (req, res) => {
     res.send(aboutPage);
 });
 
-// assignment set up a router here and include it in app.js
+router.get('/contact', (req, res) => {
+    res.send(contactPage);
+});
+
+export default router;

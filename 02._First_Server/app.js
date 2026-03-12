@@ -9,11 +9,12 @@ app.use(express.json());
 // const app = require('express')();
 
 
-
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
+// route
+        // endpoint  // callback function, route handler
 app.get('/xss', (req, res) => {
     res.sendFile(__dirname + '/xss.html');
 });

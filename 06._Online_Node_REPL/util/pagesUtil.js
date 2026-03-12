@@ -11,4 +11,7 @@ export const aboutPage = constructPage(about, {
    documentTitle: 'Online Node.js REPL | About'
 });
 
-
+const contact = readPage('./public/pages/contact/contact.html');
+export const contactPage = constructPage(contact, {
+    documentTitle: 'Online Node.js REPL | Contact'
+});
