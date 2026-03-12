@@ -5,17 +5,10 @@ app.use(express.static('public'));
 
 app.use(express.json());
 
-import path from 'path';
 
 // ================== Pages ==================
 
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve('public/pages/frontend/frontend.html'));
-});
 
-app.get('/about', (req, res) => {
-    res.sendFile(path.resolve('public/pages/about/about.html'));
-});
 
 // ================== API ==================
 
