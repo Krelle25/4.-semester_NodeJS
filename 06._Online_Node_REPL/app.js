@@ -19,32 +19,12 @@ app.get('/about', (req, res) => {
 
 // ================== API ==================
 
-import { getOrCreateSandboxContext, executeCodeInSandbox } from './util/replUtil.js';
+import replRouter from './routers/replRouter.js';
 
-app.post('/api/repl', (req, res) => {
-    if (!req.body) {
-        return res.status(400).send({ errorMessage: 'Missing a JSON body' });
-    }
+app.use(replRouter);
 
-    const { replCode, sandboxId } = req.body;
 
-    if (!replCode) {
-        return res.status(400).send({ errorMessage: 'Missing the key replCode in the JSON body' });
-    }
-    
-    const sandbox = getOrCreateSandboxContext(sandboxId);
 
-    const { error, success, output, result } = executeCodeInSandbox(sandbox, replCode);
-
-    if (error) {
-        return res.status(500).send({
-                    data: { error },
-                    errorMessage: 'Error executing the provided code'
-                });
-    }
-
-    res.send({ data: { success, output, result } });
-});
 
 // short-circuit syntax
 const PORT = process.env.PORT || 8080;
