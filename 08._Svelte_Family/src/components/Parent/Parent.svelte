@@ -1,9 +1,10 @@
 <script>
-    import { on } from "svelte/events";
     import Child from "../Child/Child.svelte";
 
                             // propagates 
     let { name, children } = $props();
+
+    import { fridgeMessages } from "../../stores/fridgeStore.js";
 
     function handleShowLove(name) {
         console.log(`${name} loves you`);
@@ -29,6 +30,8 @@
 
 
 <h1>My name is { name }.</h1>
+
+<button onclick={fridgeMessages.wipe}>Wipe Fridge</button>
 
 {#each children as child (child.name)}
     <Child {...child} onShowLove={handleShowLove} onEatCookie={handleEatCookie} drinkPantry={drinkPantry}/>
