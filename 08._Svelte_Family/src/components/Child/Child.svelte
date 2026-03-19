@@ -1,8 +1,28 @@
 <script>
     let { name, familySheep, isGirl, onShowLove, onEatCookie, drinkPantry = $bindable() } = $props();
 
+    import { fridgeMessages } from "../../stores/fridgeStore.js";
+
+    let fridgeMessageInput = $state("");
+
+    function handleSubmitFridgeMessage() {
+        const fridgeMessageToCreate = {
+            name,
+            message: fridgeMessageInput
+        };
+        // $fridgeMessages.push(fridgeMessageToCreate);
+        // fridgeMessages.set($fridgeMessages);
+
+        fridgeMessages.update((fridgeMessageStoreValue) => {
+            fridgeMessageStoreValue.push(fridgeMessageToCreate);
+            return fridgeMessageStoreValue;
+        });
+
+        fridgeMessageInput = "";
+    }
 
 </script>
+
 
 
 <div
@@ -18,6 +38,11 @@
 <button onclick={onEatCookie}>Grab a cookie from the cookie jar</button>
 
 <button onclick={() => drinkPantry.pop()}>Have a drink</button>
+
+<input bind:value={fridgeMessageInput} placeholder="Type your fridge message...">
+<button onclick={handleSubmitFridgeMessage}>Write the fridge message</button>
+
+
 
 <style>
     div {

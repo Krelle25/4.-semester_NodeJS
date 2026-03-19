@@ -3,6 +3,7 @@
 
     let { name, children } = $props();
 
+    import { fridgeMessages } from "../../stores/fridgeStore.js";
 
     function handleShowLove(name) {
         console.log(`${name} loves you`);
@@ -18,6 +19,8 @@
     }
 
 </script>
+
+<button onclick={fridgeMessages.wipe}>Wipe Fridge</button>
 
 {#each drinkPantry as drink}
     <p>{drink}</p>
