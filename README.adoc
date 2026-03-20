@@ -109,7 +109,7 @@ link:00._Course_Material/01._Assignments/04._Time/Time_To_Deploy.md[Time to depl
 
 
 | 05. Export / Import
-| March 5th
+| Feb. 26th
 a|
 * Serving static files in Express.
 * Exporting and importing in frontend (type="module" attribute).
@@ -128,7 +128,7 @@ link:00._Course_Material/01._Assignments/00._Mandatories/Mandatory_I.md[Mandator
 link:https://github.com/anderslatif/VercelShowcaseServingStaticFiles[How to serve static files with Vercel]
 
 | 06. Client vs. Server / Environment Variables
-| March 12th
+| March 5th
 a|
 * Package.json scripts.
 * Environment Variables.
@@ -145,7 +145,7 @@ a|
 Work on the mandatory: Set up pages. Add lots of documentation. Implement styling including how to display code snippets.
 
 | 07. Server-side Rendering (SSR) / Routers
-| March 19th
+| March 12th
 a|
 * Server-side rendering vs. client-side rendering.
 * Reading files.
@@ -165,7 +165,7 @@ a|
 link:00._Course_Material/01._Assignments/07._Server-side_Rendering_Routers/Svelte_interactive_tutorials_introduction_props.md[Svelte interactive tutorials  (introduction / props)]
 
 | 08. Svelte Family
-| March 26th
+| March 19th
 a|
 * Passing data between components.
 * Svelte stores.
@@ -178,5 +178,9 @@ link:00._Course_Material/01._Assignments/08._Svelte_Family/Component_Hierarchy.m
 link:00._Course_Material/01._Assignments/08._Svelte_Family/toast_notifications.md[Toast Notifications]
 
 link:00._Course_Material/01._Assignments/08._Svelte_Family/login_signup.md[Login / Signup]
+
+link:00._Course_Material/01._Assignments/08._Svelte_Family/Svelte_interactive_tutorials_II.md[Svelte interactive tutorials II]
+
+
 
 |===
