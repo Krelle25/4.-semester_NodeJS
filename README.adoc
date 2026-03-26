@@ -196,6 +196,10 @@ a|
 * Can argue about the pros and cons of JWT vs. session.
 * Understand the need for encrypting passwords, the security surrounding them and why even encrypted passwords are not safe to publicize.
 a|
+link:00._Course_Material/01._Assignments/08._Forms_First_Svelte_Project/send_emails.md[Send Emails]
+
+link:00._Course_Material/01._Assignments/08._Forms_First_Svelte_Project/register_domain_emails/register_domain_emails.md[Optional: Register Domain + Emails]
+
 link:00._Course_Material/01._Assignments/00._Mandatories/Mandatory_II.md[Mandatory II Given]
 
 Mandatory II: Make a choice between JWT or sessions. Either way, you should be informed of the pros and cons of each choice. Create the backend and setup the relevant middleware. Until next week, focus on setting up the security to the backend.
