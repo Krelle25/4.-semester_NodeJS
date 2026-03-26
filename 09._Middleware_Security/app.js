@@ -32,13 +32,26 @@ import helmet from 'helmet';
 app.use(helmet());
 
 
+import session from 'express-session';
+
+app.use(session({
+    secret: 'keyboard cat', // todo make sure not to push this
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false }
+}));
+
+
+
+
 import middlewareRouter from './routers/middlewareRouter.js';
 app.use(middlewareRouter);
 
 import authRouter from './routers/authRouter.js';
 app.use(authRouter);
 
-
+import sessionRouter from './routers/sessionRouter.js';
+app.use(sessionRouter);
 
 
 // /{*splat} is the new syntax in Express 5.x, before it was just /*
