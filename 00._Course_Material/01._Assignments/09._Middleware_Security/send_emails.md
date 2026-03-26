@@ -73,8 +73,8 @@ Here is what to write with Nodemailer:
 
 ```javascript
     auth: {
-        user: ‘<your_account>@gmail.com', 
-        pass: ‘<‘your_pass>
+        user: `<your_account>@gmail.com`, 
+        pass: `<your_pass>`
     }
 ```
 
