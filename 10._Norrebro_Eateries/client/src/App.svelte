@@ -2,7 +2,7 @@
   import { Router, Link, Route } from 'svelte-routing';
 
   import Restaurants from './pages/Restaurants/Restaurants.svelte';
-    import Visitors from './pages/Visitors/Visitors.svelte';
+  import Visitors from './pages/Visitors/Visitors.svelte';
   
 </script>
 
