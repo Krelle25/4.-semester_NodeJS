@@ -1,3 +1,16 @@
 <h1>Contact</h1>
 
-<h3>Under construction... Contact Form</h3>
+<form action="/api/contact" method="POST">
+    <fieldset>
+        <label>Name</label>
+        <input name="name" placeholder="Name..." value="Anders">
+
+        <label>Email</label>
+        <input name="email" type="email" placeholder="Email..." value="test@test.com">
+
+        <label>Message</label>
+        <textarea name="message" cols="80" rows="8"></textarea>
+
+        <button>Send Message</button>
+    </fieldset>
+</form>
