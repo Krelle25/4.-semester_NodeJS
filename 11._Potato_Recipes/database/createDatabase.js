@@ -1,7 +1,9 @@
 import db from './connection.js';
 
 
-const deleteMode = true;
+// process.argv.find((argument) => argument === '--delete')
+
+const deleteMode = process.argv.includes('--delete');
 
 if (deleteMode) {
     await db.exec(`DROP TABLE IF EXISTS ingredients;`);
@@ -11,8 +13,8 @@ if (deleteMode) {
 
 /* 
     .exec() // Run DCL / DDL (with no parameters)
-    .run() // Run a query without returning data
-    .all() // Run a query and retrieve the result set
+    .run() // Run a query without returning data (INSERT, UPDATE, DELETE)
+    .all() // Run a query and retrieve the result set (SELECT)
 */
 
 
