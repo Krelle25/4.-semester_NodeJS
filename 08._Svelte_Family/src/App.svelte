@@ -21,11 +21,8 @@
 
 </script>
 
-<!-- self-closing tag -->
- <!-- <Home />-->
 
 <Home>
   <Parent name={parents[0]} children={children}/>
-  <Parent name={parents[1]} children={children}/>
+  <Parent name={parents[1]} children={children} />
 </Home>
-

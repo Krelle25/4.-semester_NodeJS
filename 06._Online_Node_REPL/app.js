@@ -5,6 +5,8 @@ app.use(express.static('public'));
 
 app.use(express.json());
 
+app.use(express.urlencoded());
+
 
 // ================== Pages ==================
 
@@ -17,6 +19,10 @@ app.use(pagesRouter);
 import replRouter from './routers/replRouter.js';
 
 app.use(replRouter);
+
+import contactRouter from './routers/contactRouter.js';
+
+app.use(contactRouter);
 
 
 

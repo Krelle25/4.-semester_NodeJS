@@ -1,7 +1,6 @@
 <script>
     import Child from "../Child/Child.svelte";
 
-                            // propagates 
     let { name, children } = $props();
 
     import { fridgeMessages } from "../../stores/fridgeStore.js";
@@ -10,37 +9,29 @@
         console.log(`${name} loves you`);
     }
 
-    let cookieJar = $state([ '🍪', '🍪', '🍪', '🍪', '🍪']);
+    let cookieJar = $state(['🍪', '🍪', '🍪', '🍪']);
 
-    let drinkPantry = $state(['🍹', '🍹', '🍹', '🍹', '🍹'])
+    let drinkPantry = $state(['🥃', '🥃', '🥃', '🥃'])
 
-    /* Assignment
-
-    Create a cookie jar in the parent
-    a child should be able to take a cookie
-    which should remove the cookie from the jar
-    use the correct on... and handle ..convention
-    */ 
 
     function handleEatCookie() {
         cookieJar.pop();
-        console.log(`${name} ate a cookie`);
     }
+
 </script>
-
-
-<h1>My name is { name }.</h1>
 
 <button onclick={fridgeMessages.wipe}>Wipe Fridge</button>
 
-{#each children as child (child.name)}
-    <Child {...child} onShowLove={handleShowLove} onEatCookie={handleEatCookie} drinkPantry={drinkPantry}/>
+{#each drinkPantry as drink}
+    <p>{drink}</p>
 {/each}
 
 {#each cookieJar as cookie}
     <span>{cookie}</span>
 {/each}
 
-{#each drinkPantry as drink}
-    <span>{drink}</span>
+<h1>My name is {name}.</h1>
+
+{#each children as child (child.name)}
+    <Child {...child} onShowLove={handleShowLove} onEatCookie={handleEatCookie} drinkPantry={drinkPantry} />
 {/each}

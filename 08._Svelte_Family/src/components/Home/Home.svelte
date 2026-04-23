@@ -1,9 +1,10 @@
 <script>
     import { fridgeMessages } from '../../stores/fridgeStore.js';
+
 </script>
 
 {#each $fridgeMessages as fridgeMessage}
-    <p>{fridgeMessage.name || "Household"}: {fridgeMessage.message}</p>
+    <p>{fridgeMessage.name || "Household"}: {fridgeMessage.message}</p>    
 {/each}
 
 <slot></slot>
@@ -15,8 +16,8 @@
 <style>
     #welcome-mat {
         font-weight: bold;
-        color: snow;
-        background-color: rgba(160, 88, 20, 0.599);
+        color: azure;
+        background-color: brown;
         padding: 2em;
         margin: 0 20em 0 20em;
         border-radius: 0 0 2em 2em;

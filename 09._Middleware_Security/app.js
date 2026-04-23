@@ -1,11 +1,12 @@
+import 'dotenv/config';
+
 import express from 'express';
 
 const app = express();
 
-import helmet from 'helmet'; 
-app.use(helmet());
 
 import { rateLimit } from 'express-rate-limit';
+
 
 const generalLimiter = rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
@@ -18,8 +19,9 @@ const generalLimiter = rateLimit({
 
 app.use(generalLimiter);
 
+
 const authLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes 
+    windowMs: 15 * 60 * 1000,  // 15 minutes
     limit: 5,
     standardHeaders: 'draft-8',
     legacyHeaders: false,
@@ -28,27 +30,48 @@ const authLimiter = rateLimit({
 
 app.use('/auth', authLimiter);
 
+import helmet from 'helmet';
+app.use(helmet());
+
+
+import session from 'express-session';
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false }
+}));
+
+
+
+
 import middlewareRouter from './routers/middlewareRouter.js';
 app.use(middlewareRouter);
 
 import authRouter from './routers/authRouter.js';
 app.use(authRouter);
 
+import sessionRouter from './routers/sessionRouter.js';
+app.use(sessionRouter);
+
+
 // /{*splat} is the new syntax in Express 5.x, before it was just /*
 app.get('/{*splat}', (req, res) => {
     res.send(`<div>
                 <h1>404</h1>
-                <h3>Page - ${req.path} - doesn't exist </h3>
-            </div>`);
+                <h3>Page - ${req.path} - doesn't exist</h3>
+            </div>`
+    );
 });
 
-app.all('/{*splat}', (req, res) => {
+app.all('/{*splat}', (req, res)  => {
     res.send({ errorMessage: `The route for ${req.path} and the HTTP method ${req.method} does not exist` });
 });
 
-// Nullish coaelescing opreator ?? 
+// Nullish coaelescing operator ??
 const PORT = process.env.PORT ?? 8080;
 
 app.listen(PORT, () => {
-    console.log("Server is running on port: " + PORT);
+    console.log("Server is running on port", PORT);
 });
